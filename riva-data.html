@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riva Data — Reskilling. Innovation. Vision. Achievement.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #050d1f;
+    --navy-mid: #0b1a35;
+    --navy-light: #112247;
+    --electric: #0ea5e9;
+    --teal: #06b6d4;
+    --teal-dim: rgba(6,182,212,0.15);
+    --white: #ffffff;
+    --grey-50: #f7f8fa;
+    --grey-100: #eef0f5;
+    --grey-400: #94a3b8;
+    --grey-600: #64748b;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --grad-blue: linear-gradient(135deg, #0ea5e9, #06b6d4);
+    --grad-dark: linear-gradient(160deg, #050d1f 0%, #0d1f40 60%, #0a2240 100%);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    height: 68px;
+    background: rgba(5,13,31,0.85);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(14,165,233,0.12);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 34px; height: 34px;
+    background: var(--grad-blue);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 15px;
+    color: #fff;
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 17px;
+    color: var(--white);
+    letter-spacing: 0.3px;
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem; font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--grad-blue);
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 500 !important;
+    font-size: 0.85rem !important;
+    transition: opacity 0.2s !important;
+  }
+  .nav-cta:hover { opacity: 0.88; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--grad-dark);
+    position: relative;
+    display: flex; align-items: center;
+    padding: 100px 5vw 80px;
+    overflow: hidden;
+  }
+
+  /* SVG canvas background */
+  .hero-bg {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 720px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(14,165,233,0.12);
+    border: 1px solid rgba(14,165,233,0.3);
+    border-radius: 100px;
+    padding: 5px 14px 5px 8px;
+    margin-bottom: 28px;
+  }
+
+  .hero-eyebrow-dot {
+    width: 8px; height: 8px;
+    background: var(--electric);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  .hero-eyebrow span {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--electric);
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    background: var(--grad-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem; line-height: 1.75;
+    color: rgba(255,255,255,0.6);
+    max-width: 580px;
+    margin-bottom: 44px;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--grad-blue);
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 500; font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(14,165,233,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(14,165,233,0.45); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    padding: 13px 28px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-weight: 400; font-size: 0.95rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(14,165,233,0.5);
+    color: var(--white);
+    background: rgba(14,165,233,0.06);
+  }
+
+  .hero-stats {
+    position: absolute; bottom: 48px; right: 5vw; z-index: 2;
+    display: flex; gap: 48px;
+  }
+
+  .hero-stat { text-align: center; }
+  .hero-stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem; font-weight: 800;
+    color: var(--white);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-stat-num span { background: var(--grad-blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-stat-label {
+    font-size: 0.78rem; letter-spacing: 0.8px; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ─── SECTION COMMONS ─── */
+  section { padding: 100px 5vw; }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--electric);
+    margin-bottom: 14px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 18px; height: 1.5px;
+    background: var(--electric);
+    border-radius: 2px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+
+  .section-title-light { color: var(--white); }
+
+  .section-sub {
+    font-size: 1.05rem; line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 540px;
+  }
+
+  /* ─── ABOUT ─── */
+  .about { background: var(--grey-50); }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 40px 36px;
+    border: 1px solid rgba(14,165,233,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad-blue);
+  }
+
+  .about-acronym {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .acronym-row {
+    display: flex; align-items: baseline; gap: 12px;
+  }
+
+  .acronym-letter {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem; font-weight: 800;
+    background: var(--grad-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 30px;
+  }
+
+  .acronym-word {
+    font-size: 0.95rem; font-weight: 400;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .about-deco {
+    position: absolute; bottom: -20px; right: -20px;
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .about-text p {
+    font-size: 1.05rem; line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .about-highlight {
+    display: flex; gap: 12px; align-items: flex-start;
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: var(--white);
+    border-radius: 10px;
+    border-left: 3px solid var(--electric);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+
+  .about-highlight-icon { font-size: 1.4rem; }
+
+  .about-highlight p {
+    font-size: 0.9rem; margin: 0; color: var(--text-primary);
+    font-weight: 500; line-height: 1.5;
+  }
+
+  /* ─── PROGRAMS ─── */
+  .programs { background: var(--white); }
+
+  .programs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 56px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .program-card {
+    background: var(--white);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.28s, box-shadow 0.28s, border-color 0.28s;
+    cursor: pointer;
+  }
+
+  .program-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(14,165,233,0.12);
+    border-color: rgba(14,165,233,0.4);
+  }
+
+  .program-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad-blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .program-card:hover::after { transform: scaleX(1); }
+
+  .program-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    background: var(--teal-dim);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(6,182,212,0.2);
+  }
+
+  .program-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .program-card p {
+    font-size: 0.9rem; line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .program-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 24px;
+  }
+
+  .tag {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.4px;
+    padding: 3px 10px;
+    background: var(--grey-100);
+    color: var(--text-muted);
+    border-radius: 100px;
+  }
+
+  .btn-card {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.85rem; font-weight: 500;
+    color: var(--electric);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .btn-card:hover { gap: 10px; }
+  .btn-card svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* ─── WHY ─── */
+  .why { background: var(--grey-50); }
+
+  .why-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .why-list {
+    display: flex; flex-direction: column; gap: 20px;
+    list-style: none;
+  }
+
+  .why-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 22px 24px;
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .why-item:hover {
+    border-color: rgba(14,165,233,0.3);
+    box-shadow: 0 4px 20px rgba(14,165,233,0.08);
+  }
+
+  .why-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    border-radius: 9px;
+    background: rgba(14,165,233,0.08);
+    border: 1px solid rgba(14,165,233,0.18);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px;
+  }
+
+  .why-item-text h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem; font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .why-item-text p {
+    font-size: 0.85rem; line-height: 1.55;
+    color: var(--text-muted);
+  }
+
+  .why-visual {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .why-graphic {
+    width: 100%; max-width: 380px;
+    background: var(--navy);
+    border-radius: 20px;
+    padding: 40px 32px;
+    border: 1px solid rgba(14,165,233,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-graphic::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(14,165,233,0.2) 0%, transparent 60%);
+  }
+
+  .why-graphic-label {
+    font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--electric); font-weight: 600; margin-bottom: 24px;
+  }
+
+  .metric-row {
+    display: flex; flex-direction: column; gap: 18px;
+  }
+
+  .metric {
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .metric-bar-wrap {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .metric-bar {
+    height: 100%;
+    background: var(--grad-blue);
+    border-radius: 100px;
+    animation: growBar 1.2s ease forwards;
+    transform-origin: left;
+  }
+
+  @keyframes growBar {
+    from { width: 0; }
+  }
+
+  .metric-name {
+    font-size: 0.8rem; color: rgba(255,255,255,0.55);
+    min-width: 120px;
+  }
+
+  .metric-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem; font-weight: 700;
+    color: var(--white);
+    min-width: 38px; text-align: right;
+  }
+
+  /* ─── CONSULTING ─── */
+  .consulting {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .consulting::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 60%);
+  }
+
+  .consulting::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 60%);
+  }
+
+  .consulting-inner {
+    position: relative; z-index: 1;
+  }
+
+  .consulting-header { margin-bottom: 56px; }
+
+  .consulting-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .consult-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(14,165,233,0.12);
+    border-radius: 14px;
+    padding: 30px 28px;
+    transition: background 0.25s, border-color 0.25s;
+  }
+
+  .consult-card:hover {
+    background: rgba(14,165,233,0.07);
+    border-color: rgba(14,165,233,0.3);
+  }
+
+  .consult-card-icon {
+    font-size: 24px; margin-bottom: 14px; display: block;
+  }
+
+  .consult-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .consult-card p {
+    font-size: 0.88rem; line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .consulting-prose {
+    margin-top: 44px;
+    padding: 28px 32px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(14,165,233,0.12);
+    border-radius: 14px;
+  }
+
+  .consulting-prose p {
+    font-size: 1rem; line-height: 1.75;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .consulting-prose strong { color: rgba(255,255,255,0.85); }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: var(--white);
+    text-align: center;
+    padding: 120px 5vw;
+  }
+
+  .cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .cta-section .section-label { justify-content: center; }
+
+  .cta-section .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 18px;
+  }
+
+  .cta-section .section-sub {
+    margin: 0 auto 44px;
+    text-align: center;
+    max-width: 480px;
+  }
+
+  .cta-actions {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  }
+
+  .btn-primary-dark {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--navy);
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 500; font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary-dark:hover { background: var(--navy-light); transform: translateY(-2px); }
+
+  .btn-outline-dark {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent;
+    color: var(--text-primary);
+    padding: 13px 28px;
+    border-radius: 8px;
+    border: 1.5px solid #d1d5db;
+    font-weight: 400; font-size: 0.95rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline-dark:hover { border-color: var(--electric); color: var(--electric); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #03091a;
+    padding: 56px 5vw 36px;
+    border-top: 1px solid rgba(14,165,233,0.1);
+  }
+
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 32px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand .nav-logo-text {
+    font-size: 18px; margin-bottom: 10px; display: block;
+  }
+
+  .footer-brand p {
+    font-size: 0.85rem; color: rgba(255,255,255,0.4);
+    max-width: 280px; line-height: 1.6;
+  }
+
+  .footer-links {
+    display: flex; gap: 60px;
+  }
+
+  .footer-col h5 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+
+  .footer-col a {
+    display: block; text-decoration: none;
+    font-size: 0.875rem; color: rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--white); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem; color: rgba(255,255,255,0.3);
+  }
+
+  .footer-social {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .social-link {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .social-link:hover { background: rgba(14,165,233,0.12); border-color: var(--electric); color: var(--electric); }
+  .social-link svg { width: 16px; height: 16px; }
+
+  .uk-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px; padding: 4px 12px;
+    font-size: 0.75rem; color: rgba(255,255,255,0.45);
+  }
+
+  /* ─── SCROLL ANIMATIONS ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .about-inner, .why-inner { grid-template-columns: 1fr; gap: 48px; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .consulting-grid { grid-template-columns: 1fr; }
+    .hero-stats { position: static; margin-top: 56px; justify-content: flex-start; }
+    .hero { padding-bottom: 60px; flex-direction: column; justify-content: flex-start; }
+    .footer-links { flex-direction: column; gap: 32px; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">R</div>
+    <span class="nav-logo-text">Riva Data</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#consulting">Consulting</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <!-- Animated SVG background -->
+  <svg class="hero-bg" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Network lines -->
+    <g stroke="rgba(14,165,233,0.12)" stroke-width="1">
+      <line x1="200" y1="100" x2="480" y2="300"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/></line>
+      <line x1="480" y1="300" x2="800" y2="180"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="5s" repeatCount="indefinite"/></line>
+      <line x1="800" y1="180" x2="1100" y2="400"><animate attributeName="opacity" values="0.2;0.7;0.2" dur="3.5s" repeatCount="indefinite"/></line>
+      <line x1="1100" y1="400" x2="1350" y2="220"><animate attributeName="opacity" values="0.4;1;0.4" dur="4.5s" repeatCount="indefinite"/></line>
+      <line x1="480" y1="300" x2="640" y2="560"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="5.5s" repeatCount="indefinite"/></line>
+      <line x1="640" y1="560" x2="900" y2="480"><animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite"/></line>
+      <line x1="900" y1="480" x2="1100" y2="400"/><animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+      <line x1="200" y1="100" x2="320" y2="420"/>
+      <line x1="320" y1="420" x2="640" y2="560"/>
+      <line x1="900" y1="480" x2="1200" y2="700"/>
+      <line x1="1200" y1="700" x2="1350" y2="220"/>
+    </g>
+    <!-- Nodes -->
+    <g fill="rgba(14,165,233,0.4)">
+      <circle cx="200" cy="100" r="3"><animate attributeName="r" values="3;5;3" dur="3s" repeatCount="indefinite"/></circle>
+      <circle cx="480" cy="300" r="4"><animate attributeName="r" values="4;6;4" dur="4s" repeatCount="indefinite"/></circle>
+      <circle cx="800" cy="180" r="3"><animate attributeName="r" values="3;5;3" dur="3.5s" repeatCount="indefinite"/></circle>
+      <circle cx="1100" cy="400" r="5"><animate attributeName="r" values="5;7;5" dur="2.5s" repeatCount="indefinite"/></circle>
+      <circle cx="640" cy="560" r="3"><animate attributeName="r" values="3;5;3" dur="4.5s" repeatCount="indefinite"/></circle>
+      <circle cx="900" cy="480" r="4"><animate attributeName="r" values="4;6;4" dur="3s" repeatCount="indefinite"/></circle>
+      <circle cx="320" cy="420" r="3"/>
+      <circle cx="1350" cy="220" r="3"/>
+      <circle cx="1200" cy="700" r="3"/>
+    </g>
+    <!-- Ambient glow -->
+    <circle cx="1100" cy="200" r="300" fill="url(#glow1)" opacity="0.4"/>
+    <circle cx="400" cy="700" r="250" fill="url(#glow2)" opacity="0.25"/>
+    <defs>
+      <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.25"/>
+        <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot"></div>
+      <span>UK-Based Data Education &amp; Consulting</span>
+    </div>
+    <h1>Build Your Future<br>in <em>Data</em> with<br>Riva Data</h1>
+    <p class="hero-sub">Reskilling professionals into industry-ready Data Analysts, Data Engineers, and Data Scientists through practical, real-world training and innovation-driven learning.</p>
+    <div class="hero-actions">
+      <a href="#programs" class="btn-primary">
+        Explore Programs
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#consulting" class="btn-ghost">Partner With Us</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num"><span>3</span></span>
+      <span class="hero-stat-label">Specialist<br>Programs</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num"><span>100%</span></span>
+      <span class="hero-stat-label">Industry<br>Aligned</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num"><span>UK</span></span>
+      <span class="hero-stat-label">Based &amp;<br>Accredited</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-visual reveal">
+      <div class="about-card">
+        <div class="about-acronym">
+          <div class="acronym-row"><span class="acronym-letter">R</span><span class="acronym-word">Reskilling</span></div>
+          <div class="acronym-row"><span class="acronym-letter">I</span><span class="acronym-word">Innovation</span></div>
+          <div class="acronym-row"><span class="acronym-letter">V</span><span class="acronym-word">Vision</span></div>
+          <div class="acronym-row"><span class="acronym-letter">A</span><span class="acronym-word">Achievement</span></div>
+          <div class="acronym-row" style="margin-top:8px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.07)">
+            <span style="font-size:0.78rem;color:rgba(255,255,255,0.35);letter-spacing:1px;text-transform:uppercase;">in Data</span>
+          </div>
+        </div>
+        <div class="about-deco"></div>
+      </div>
+    </div>
+    <div class="about-text reveal reveal-delay-1">
+      <span class="section-label">About Riva Data</span>
+      <h2 class="section-title">Reskilling. Innovation. Vision. Achievement. in Data.</h2>
+      <p>Riva Data is a UK-based data education institute and consultancy dedicated to bridging the gap between aspiration and expertise. We provide career-focused, practitioner-led training programmes that equip individuals with the technical skills and strategic mindset demanded by today's data-driven economy.</p>
+      <p>Beyond education, we partner with organisations to architect, modernise, and scale their data capabilities — from pipeline engineering to advanced AI analytics.</p>
+      <div class="about-highlight">
+        <span class="about-highlight-icon">🇬🇧</span>
+        <div>
+          <p>Proudly UK-based. Delivering world-class data education and consulting to professionals and organisations across Britain and beyond.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="programs-header">
+    <div>
+      <span class="section-label">Training Programmes</span>
+      <h2 class="section-title">Purpose-Built for<br>Data Careers</h2>
+    </div>
+    <p class="section-sub" style="text-align:right">Each programme is designed with industry partners and led by practitioners with real-world experience in data roles.</p>
+  </div>
+
+  <div class="programs-grid">
+    <!-- Card 1 -->
+    <div class="program-card reveal">
+      <div class="program-icon">📊</div>
+      <h3>Data Analytics Program</h3>
+      <p>Transform raw data into actionable insights. Master SQL, Python, Power BI, and Tableau while developing the analytical thinking that drives business decisions.</p>
+      <div class="program-tags">
+        <span class="tag">SQL</span>
+        <span class="tag">Python</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">Tableau</span>
+        <span class="tag">Statistics</span>
+      </div>
+      <a href="#" class="btn-card">
+        Learn More
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <!-- Card 2 -->
+    <div class="program-card reveal reveal-delay-1">
+      <div class="program-icon">⚙️</div>
+      <h3>Data Engineering Program</h3>
+      <p>Build and maintain the infrastructure that powers data products. Design scalable pipelines, orchestrate workflows, and work with cloud-native data platforms.</p>
+      <div class="program-tags">
+        <span class="tag">dbt</span>
+        <span class="tag">Apache Spark</span>
+        <span class="tag">Airflow</span>
+        <span class="tag">AWS / Azure</span>
+        <span class="tag">Kafka</span>
+      </div>
+      <a href="#" class="btn-card">
+        Learn More
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <!-- Card 3 -->
+    <div class="program-card reveal reveal-delay-2">
+      <div class="program-icon">🤖</div>
+      <h3>Data Science &amp; AI Program</h3>
+      <p>Go beyond analysis into prediction and automation. Build machine learning models, deploy AI solutions, and work at the intersection of data and intelligence.</p>
+      <div class="program-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Deep Learning</span>
+        <span class="tag">NLP</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">MLOps</span>
+      </div>
+      <a href="#" class="btn-card">
+        Learn More
+        <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div>
+      <span class="section-label">Why Riva Data</span>
+      <h2 class="section-title" style="margin-bottom:40px;">Training Built on<br>Consulting Experience</h2>
+      <ul class="why-list">
+        <li class="why-item reveal">
+          <div class="why-icon">🎯</div>
+          <div class="why-item-text">
+            <h4>Industry-Aligned Curriculum</h4>
+            <p>Built around the tools, workflows, and expectations of real data teams — not textbooks.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-1">
+          <div class="why-icon">🛠️</div>
+          <div class="why-item-text">
+            <h4>Real-World Projects</h4>
+            <p>Every programme includes hands-on projects drawn from genuine consulting engagements.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-2">
+          <div class="why-icon">🧭</div>
+          <div class="why-item-text">
+            <h4>Mentorship &amp; Career Guidance</h4>
+            <p>One-to-one support from experienced data professionals throughout your learning journey.</p>
+          </div>
+        </li>
+        <li class="why-item reveal">
+          <div class="why-icon">💡</div>
+          <div class="why-item-text">
+            <h4>Consulting-Led Training Approach</h4>
+            <p>Our instructors are active consultants — you learn what's practised, not just what's taught.</p>
+          </div>
+        </li>
+        <li class="why-item reveal reveal-delay-1">
+          <div class="why-icon">🇬🇧</div>
+          <div class="why-item-text">
+            <h4>UK-Based Standards</h4>
+            <p>Curricula aligned with UK industry standards, employer expectations, and GDPR compliance.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="why-visual reveal reveal-delay-2">
+      <div class="why-graphic">
+        <div class="why-graphic-label">Learner Outcomes</div>
+        <div class="metric-row">
+          <div class="metric">
+            <span class="metric-name">Job Readiness</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:95%"></div></div>
+            <span class="metric-val">95%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-name">Project Portfolio</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:100%"></div></div>
+            <span class="metric-val">100%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-name">Industry Tools</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:90%"></div></div>
+            <span class="metric-val">90%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-name">Mentored Hours</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:80%"></div></div>
+            <span class="metric-val">80+hrs</span>
+          </div>
+          <div class="metric">
+            <span class="metric-name">Employer Feedback</span>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="width:98%"></div></div>
+            <span class="metric-val">★ 4.9</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTING -->
+<section class="consulting" id="consulting">
+  <div class="consulting-inner">
+    <div class="consulting-header reveal">
+      <span class="section-label" style="color: var(--teal);">Consulting Services</span>
+      <h2 class="section-title section-title-light" style="max-width:540px;">We Also Build the<br>Infrastructure Organisations Need</h2>
+    </div>
+
+    <div class="consulting-grid">
+      <div class="consult-card reveal">
+        <span class="consult-card-icon">🔗</span>
+        <h3>Data Pipelines</h3>
+        <p>End-to-end pipeline design, build, and optimisation. From ingestion to transformation to delivery — reliable, scalable, and observable.</p>
+      </div>
+      <div class="consult-card reveal reveal-delay-1">
+        <span class="consult-card-icon">📈</span>
+        <h3>BI &amp; Reporting</h3>
+        <p>Unified reporting layers and interactive dashboards that give leadership real-time visibility across the entire organisation.</p>
+      </div>
+      <div class="consult-card reveal reveal-delay-2">
+        <span class="consult-card-icon">🧠</span>
+        <h3>AI &amp; Advanced Analytics</h3>
+        <p>Predictive models, NLP solutions, and AI-powered decision tools tailored to your specific business context and data assets.</p>
+      </div>
+      <div class="consult-card reveal reveal-delay-3">
+        <span class="consult-card-icon">☁️</span>
+        <h3>Cloud Data Architecture</h3>
+        <p>Modern cloud-native data platforms on AWS, Azure, or GCP. Architected for performance, governance, and cost efficiency.</p>
+      </div>
+    </div>
+
+    <div class="consulting-prose reveal">
+      <p>Riva Data brings a <strong>practitioner-first consulting approach</strong> to every engagement. We work as an extension of your team — understanding your data landscape, identifying gaps, and delivering robust, future-proof solutions. Whether you're starting your data journey or scaling an existing capability, we provide the <strong>strategic and technical expertise</strong> to move with confidence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <span class="section-label">Get Started</span>
+    <h2 class="section-title">Start Your Data<br>Transformation Today.</h2>
+    <p class="section-sub">Whether you're an individual looking to break into data or an organisation ready to unlock the power of your data assets — Riva Data is your partner.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn-primary">
+        Apply Now
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#" class="btn-outline-dark">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="margin-bottom:12px; display:inline-flex">
+        <div class="nav-logo-mark">R</div>
+        <span class="nav-logo-text">Riva Data</span>
+      </a>
+      <p>Reskilling professionals. Empowering organisations. Shaping the future of data in the UK and beyond.</p>
+      <div class="uk-badge" style="margin-top:16px">🇬🇧 United Kingdom</div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h5>Programmes</h5>
+        <a href="#">Data Analytics</a>
+        <a href="#">Data Engineering</a>
+        <a href="#">Data Science &amp; AI</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#">About Us</a>
+        <a href="#">Consulting</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="mailto:hello@rivadata.co.uk">hello@rivadata.co.uk</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Riva Data Ltd. All rights reserved. Registered in England &amp; Wales.</p>
+    <div class="footer-social">
+      <a href="#" class="social-link" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zm2-3a2 2 0 100-4 2 2 0 000 4z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav bg on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(5,13,31,0.97)'
+      : 'rgba(5,13,31,0.85)';
+  });
+
+  // Trigger hero elements immediately
+  document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible'));
+</script>
+</body>
+</html>

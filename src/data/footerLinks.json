@@ -1,0 +1,27 @@
+{
+  "columns": [
+    {
+      "title": "Programmes",
+      "links": [
+        { "label": "Data Analytics", "href": "#programs" },
+        { "label": "Data Engineering", "href": "#programs" },
+        { "label": "Data Science & AI", "href": "#programs" }
+      ]
+    },
+    {
+      "title": "Company",
+      "links": [
+        { "label": "About Us", "href": "#about" },
+        { "label": "Consulting", "href": "#consulting" },
+        { "label": "Contact", "href": "#contact" }
+      ]
+    },
+    {
+      "title": "Contact",
+      "links": [
+        { "label": "hello@rivadata.co.uk", "href": "mailto:hello@rivadata.co.uk" },
+        { "label": "LinkedIn", "href": "https://www.linkedin.com/company/riva-data/" }
+      ]
+    }
+  ]
+}
