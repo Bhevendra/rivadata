@@ -76,7 +76,7 @@ function render(programId) {
 
           <div class="program-cta-row">
             <a class="btn-primary" href="${escapeHtml(p.checkoutUrl)}" target="_blank" rel="noopener noreferrer">Pay Now</a>
-            <a class="btn-outline-dark" href="/#contact">Talk to us first</a>
+            <a class="btn-outline-dark" href="#talk" id="talk-btn">Talk to us first</a>
           </div>
 
           <p class="trust-note">Secure checkout • Seat reserved after payment • Limited cohort size</p>
@@ -138,6 +138,45 @@ function render(programId) {
       </div>
     </section>
 
+    <div class="modal" id="talk-modal" aria-hidden="true">
+      <div class="modal-backdrop" id="talk-close"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="talk-title">
+        <h3 id="talk-title">Talk to us first</h3>
+        <p class="modal-sub">Tell us a bit about your goal — we’ll reply within 24 hours.</p>
+
+        <form action="https://formspree.io/f/xjgenqzk" method="POST">
+          <label>
+            Name
+            <input name="name" required />
+          </label>
+
+          <label>
+            Email
+            <input name="email" type="email" required />
+          </label>
+
+          <label>
+            Phone (optional)
+            <input name="phone" />
+          </label>
+
+          <label>
+            Which program?
+            <input name="program" readonly value="${escapeHtml(p.badge)}" />
+          </label>
+
+          <label>
+            Message
+            <textarea name="message" rows="4" placeholder="What are you trying to achieve?" required></textarea>
+          </label>
+
+          <button class="btn-primary" type="submit">Send</button>
+        </form>
+
+        <button class="modal-x" id="talk-x" aria-label="Close">×</button>
+      </div>
+    </div>
+
     <div class="sticky-pay">
       <div class="sticky-pay-inner">
         <div class="sticky-left">
@@ -151,15 +190,14 @@ function render(programId) {
 }
 
 function addProgramPageStyles() {
-  // Minimal page-specific CSS injected (keeps you moving fast)
   const css = `
   .program-hero{padding:120px 5vw 70px;background:var(--grey-50)}
   .program-hero-inner{display:grid;grid-template-columns:1.4fr 0.8fr;gap:34px;align-items:start;max-width:1200px;margin:0 auto}
   .program-meta{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 16px}
   .program-meta-box{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;min-width:160px}
   .meta-k{font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px}
-  .meta-v{font-family:'DM Sans',sans-serif;font-weight:700;color:var(--text-primary);font-size:1.05rem;}
-  .pricing-price{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;margin:8px 0 6px;letter-spacing:-0.5px;}
+  .meta-v{font-family:'DM Sans',sans-serif;font-weight:700;color:var(--text-primary);font-size:1.05rem}
+  .pricing-price{font-family:'DM Sans',sans-serif;font-size:2.2rem;font-weight:800;margin:8px 0 6px;letter-spacing:-0.5px}
   .program-tags{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 22px}
   .program-cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
   .trust-note{margin-top:14px;color:var(--text-muted);font-size:.9rem}
@@ -179,26 +217,28 @@ function addProgramPageStyles() {
   .curriculum-item summary,.faq-item summary{cursor:pointer;font-family:'Syne',sans-serif;font-weight:700}
   .curriculum-item ul{margin-top:10px;padding-left:18px;color:var(--text-muted);display:flex;flex-direction:column;gap:6px}
   .faq-item p{margin-top:10px;color:var(--text-muted);line-height:1.6}
+
+  .modal{position:fixed;inset:0;display:none;z-index:2000}
+  .modal[aria-hidden="false"]{display:block}
+  .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+  .modal-card{position:relative;max-width:520px;margin:90px auto 0;background:#fff;border-radius:16px;padding:22px 20px;border:1px solid #e2e8f0;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+  .modal-sub{color:var(--text-muted);margin:8px 0 14px;line-height:1.5}
+  .modal-card label{display:block;font-size:.85rem;color:var(--text-primary);margin:10px 0}
+  .modal-card input,.modal-card textarea{width:100%;margin-top:6px;padding:10px 12px;border:1px solid #d1d5db;border-radius:10px;font-family:'DM Sans',sans-serif}
+  .modal-card textarea{resize:vertical}
+  .modal-x{position:absolute;top:10px;right:12px;border:0;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:var(--text-muted)}
+  .modal-x:hover{color:var(--text-primary)}
+
   .sticky-pay{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-top:1px solid #e2e8f0;z-index:999}
   .sticky-pay-inner{max-width:1200px;margin:0 auto;padding:12px 5vw;display:flex;justify-content:space-between;align-items:center;gap:14px}
-  .sticky-title{
-  font-family:'DM Sans',sans-serif;
-  font-weight:700;
-  font-size:1.8rem;
-  letter-spacing:0;
-  color:var(--text-primary);
-    }
-  .sticky-sub{
-  font-family:'DM Sans',sans-serif;
-  font-weight:400;
-  font-size:.9rem;
-  color:var(--text-muted);
-    }
+  .sticky-title{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0;color:var(--text-primary)}
+  .sticky-sub{font-family:'DM Sans',sans-serif;font-weight:400;font-size:.9rem;color:var(--text-muted)}
 
   @media(max-width:900px){
     .program-hero-inner,.program-two-col{grid-template-columns:1fr}
     .pricing-card{position:relative;top:auto}
   }`;
+
   const style = document.createElement("style");
   style.textContent = css;
   document.head.appendChild(style);
@@ -207,7 +247,37 @@ function addProgramPageStyles() {
 window.addEventListener("DOMContentLoaded", () => {
   addProgramPageStyles();
   const id = document.body.getAttribute("data-program-id");
+
+  // Render FIRST so the button/modal exist in DOM
   render(id);
+
+  // Now attach modal listeners
+  const talkBtn = document.getElementById("talk-btn");
+  const modal = document.getElementById("talk-modal");
+  const close1 = document.getElementById("talk-close");
+  const close2 = document.getElementById("talk-x");
+
+  function openModal() {
+    if (!modal) return;
+    modal.setAttribute("aria-hidden", "false");
+  }
+  function closeModal() {
+    if (!modal) return;
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  talkBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    openModal();
+  });
+
+  close1?.addEventListener("click", closeModal);
+  close2?.addEventListener("click", closeModal);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
   initReveal();
   initNav();
 });
