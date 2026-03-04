@@ -19,9 +19,12 @@ function renderPrograms() {
   if (!el) return;
 
   el.innerHTML = programs
-    .map(
-      (p) => `
-      <div class="program-card reveal">
+    .map((p) => {
+      const href = escapeHtml(p.ctaHref || "#");
+      const ctaText = escapeHtml(p.ctaText || "Learn more");
+
+      return `
+      <div class="program-card reveal" role="link" tabindex="0" data-href="${href}">
         <div class="program-icon">${escapeHtml(p.icon)}</div>
         <h3>${escapeHtml(p.title)}</h3>
         <p>${escapeHtml(p.body)}</p>
@@ -30,16 +33,34 @@ function renderPrograms() {
           ${(p.tags || []).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}
         </div>
 
-        <a class="btn-card" href="${escapeHtml(p.ctaHref || "#")}">
-          ${escapeHtml(p.ctaText || "Learn more")}
+        <a class="btn-card" href="${href}">
+          ${ctaText}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>
-      </div>
-    `
-    )
+      </div>`;
+    })
     .join("");
+
+  // Make whole card clickable (mouse + keyboard)
+  el.querySelectorAll(".program-card[data-href]").forEach((card) => {
+    const href = card.getAttribute("data-href");
+    if (!href || href === "#") return;
+
+    card.addEventListener("click", (e) => {
+      // If user clicked the actual link inside, let the browser handle it
+      if (e.target && e.target.closest("a")) return;
+      window.location.href = href;
+    });
+
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        window.location.href = href;
+      }
+    });
+  });
 }
 
 function renderConsulting() {
